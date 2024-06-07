@@ -1,5 +1,5 @@
 $(function () {
-  ('use strict');
+  ;('use strict')
 
   // variables
   var form = $('.validate-form'),
@@ -10,19 +10,19 @@ $(function () {
     accountNumberMask = $('.account-number-mask'),
     accountZipCode = $('.account-zip-code'),
     select2 = $('.select2'),
-    cancelSubscription = document.querySelector('.cancel-subscription');
+    cancelSubscription = document.querySelector('.cancel-subscription')
 
   if ($('body').attr('data-framework') === 'laravel') {
-    assetPath = $('body').attr('data-asset-path');
-    invoicePreview = assetPath + 'app/invoice/preview';
-    invoiceEdit = assetPath + 'app/invoice/edit';
+    assetPath = $('body').attr('data-asset-path')
+    invoicePreview = assetPath + 'app/invoice/preview'
+    invoiceEdit = assetPath + 'app/invoice/edit'
   }
 
   // jQuery Validation for all forms
   // --------------------------------------------------------------------
   if (form.length) {
     form.each(function () {
-      var $this = $(this);
+      var $this = $(this)
 
       $this.validate({
         rules: {
@@ -36,11 +36,11 @@ $(function () {
             required: true
           }
         }
-      });
+      })
       $this.on('submit', function (e) {
-        e.preventDefault();
-      });
-    });
+        e.preventDefault()
+      })
+    })
   }
 
   // cancel subscription button
@@ -65,7 +65,7 @@ $(function () {
             customClass: {
               confirmButton: 'btn btn-success'
             }
-          });
+          })
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
             title: 'Cancelled',
@@ -74,10 +74,10 @@ $(function () {
             customClass: {
               confirmButton: 'btn btn-success'
             }
-          });
+          })
         }
-      });
-    };
+      })
+    }
   }
 
   //phone
@@ -86,8 +86,8 @@ $(function () {
       new Cleave($(this), {
         phone: true,
         phoneRegionCode: 'US'
-      });
-    });
+      })
+    })
   }
 
   //zip code
@@ -96,19 +96,19 @@ $(function () {
       new Cleave($(this), {
         delimiter: '',
         numeral: true
-      });
-    });
+      })
+    })
   }
 
   // For all Select2
   if (select2.length) {
     select2.each(function () {
-      var $this = $(this);
-      $this.wrap('<div class="position-relative"></div>');
+      var $this = $(this)
+      $this.wrap('<div class="position-relative"></div>')
       $this.select2({
         dropdownParent: $this.parent()
-      });
-    });
+      })
+    })
   }
 
   // datatable
@@ -141,10 +141,10 @@ $(function () {
           targets: 1,
           width: '46px',
           render: function (data, type, full, meta) {
-            var $invoiceId = full['invoice_id'];
+            var $invoiceId = full['invoice_id']
             // Creates full output for row
-            var $rowOutput = '<a class="fw-bold" href="' + invoicePreview + '"> #' + $invoiceId + '</a>';
-            return $rowOutput;
+            var $rowOutput = '<a class="fw-bold" href="' + invoicePreview + '"> #' + $invoiceId + '</a>'
+            return $rowOutput
           }
         },
         {
@@ -162,7 +162,7 @@ $(function () {
                 Downloaded: { class: 'bg-light-info', icon: 'arrow-down-circle' },
                 'Past Due': { class: 'bg-light-danger', icon: 'info' },
                 'Partial Payment': { class: 'bg-light-warning', icon: 'pie-chart' }
-              };
+              }
             return (
               "<span data-bs-toggle='tooltip' data-bs-html='true' title='<span>" +
               $invoiceStatus +
@@ -179,7 +179,7 @@ $(function () {
               '</span>' +
               '</div>' +
               '</span>'
-            );
+            )
           }
         },
         {
@@ -187,8 +187,8 @@ $(function () {
           targets: 3,
           width: '73px',
           render: function (data, type, full, meta) {
-            var $total = full['total'];
-            return '$' + $total;
+            var $total = full['total']
+            return '$' + $total
           }
         },
         {
@@ -196,11 +196,11 @@ $(function () {
           targets: 4,
           width: '130px',
           render: function (data, type, full, meta) {
-            var $issuedDate = new Date(full['issued_date']);
+            var $issuedDate = new Date(full['issued_date'])
             // Creates full output for row
-            var $rowOutput = moment($issuedDate).format('DD MMM YYYY');
-            $issuedDate;
-            return $rowOutput;
+            var $rowOutput = moment($issuedDate).format('DD MMM YYYY')
+            $issuedDate
+            return $rowOutput
           }
         },
         {
@@ -208,11 +208,11 @@ $(function () {
           targets: 5,
           width: '130px',
           render: function (data, type, full, meta) {
-            var $dueDate = new Date(full['due_date']);
+            var $dueDate = new Date(full['due_date'])
             // Creates full output for row
-            var $rowOutput = moment($dueDate).format('DD MMM YYYY');
-            $dueDate;
-            return $rowOutput;
+            var $rowOutput = moment($dueDate).format('DD MMM YYYY')
+            $dueDate
+            return $rowOutput
           }
         },
         {
@@ -220,12 +220,12 @@ $(function () {
           targets: 6,
           width: '98px',
           render: function (data, type, full, meta) {
-            var $balance = full['balance'];
+            var $balance = full['balance']
             if ($balance === 0) {
-              var $badge_class = 'badge-light-success';
-              return '<span class="badge rounded-pill ' + $badge_class + '" text-capitalized> Paid </span>';
+              var $badge_class = 'badge-light-success'
+              return '<span class="badge rounded-pill ' + $badge_class + '" text-capitalized> Paid </span>'
             } else {
-              return '<span class="d-none">' + $balance + '</span>' + $balance;
+              return '<span class="d-none">' + $balance + '</span>' + $balance
             }
           }
         },
@@ -272,7 +272,7 @@ $(function () {
               '</div>' +
               '</div>' +
               '</div>'
-            );
+            )
           }
         }
       ],
@@ -316,11 +316,11 @@ $(function () {
             }
           ],
           init: function (api, node, config) {
-            $(node).removeClass('btn-secondary');
-            $(node).parent().removeClass('btn-group');
+            $(node).removeClass('btn-secondary')
+            $(node).parent().removeClass('btn-group')
             setTimeout(function () {
-              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex');
-            }, 50);
+              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex')
+            }, 50)
           }
         }
       ],
@@ -329,8 +329,8 @@ $(function () {
         details: {
           display: $.fn.dataTable.Responsive.display.modal({
             header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['client_name'];
+              var data = row.data()
+              return 'Details of ' + data['client_name']
             }
           }),
           type: 'column',
@@ -350,19 +350,19 @@ $(function () {
                     col.data +
                     '</td>' +
                     '</tr>'
-                : '';
-            }).join('');
-            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false;
+                : ''
+            }).join('')
+            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false
           }
         }
       },
       initComplete: function () {
-        $(document).find('[data-bs-toggle="tooltip"]').tooltip();
+        $(document).find('[data-bs-toggle="tooltip"]').tooltip()
       },
       drawCallback: function () {
-        $(document).find('[data-bs-toggle="tooltip"]').tooltip();
+        $(document).find('[data-bs-toggle="tooltip"]').tooltip()
       }
-    });
-    $('div.head-label').html('<h4 class="card-title">Billing History</h4>');
+    })
+    $('div.head-label').html('<h4 class="card-title">Billing History</h4>')
   }
-});
+})

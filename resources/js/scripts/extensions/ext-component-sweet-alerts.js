@@ -7,41 +7,41 @@
 	Author URL: hhttp://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 $(function () {
-  'use strict';
+  'use strict'
 
-  var basicAlert = $('#basic-alert');
-  var withTitle = $('#with-title');
-  var withFooter = $('#footer-alert');
-  var htmlAlert = $('#html-alert');
+  var basicAlert = $('#basic-alert')
+  var withTitle = $('#with-title')
+  var withFooter = $('#footer-alert')
+  var htmlAlert = $('#html-alert')
 
-  var positionTopStart = $('#position-top-start');
-  var positionTopEnd = $('#position-top-end');
-  var positionBottomStart = $('#position-bottom-start');
-  var positionBottomEnd = $('#position-bottom-end');
+  var positionTopStart = $('#position-top-start')
+  var positionTopEnd = $('#position-top-end')
+  var positionBottomStart = $('#position-bottom-start')
+  var positionBottomEnd = $('#position-bottom-end')
 
-  var bounceIn = $('#bounce-in-animation');
-  var fadeIn = $('#fade-in-animation');
-  var flipX = $('#flip-x-animation');
-  var tada = $('#tada-animation');
-  var shake = $('#shake-animation');
+  var bounceIn = $('#bounce-in-animation')
+  var fadeIn = $('#fade-in-animation')
+  var flipX = $('#flip-x-animation')
+  var tada = $('#tada-animation')
+  var shake = $('#shake-animation')
 
-  var success = $('#type-success');
-  var error = $('#type-error');
-  var warning = $('#type-warning');
-  var info = $('#type-info');
+  var success = $('#type-success')
+  var error = $('#type-error')
+  var warning = $('#type-warning')
+  var info = $('#type-info')
 
-  var customImage = $('#custom-image');
-  var autoClose = $('#auto-close');
-  var outsideClick = $('#outside-click');
-  var question = $('#prompt-function');
-  var ajax = $('#ajax-request');
+  var customImage = $('#custom-image')
+  var autoClose = $('#auto-close')
+  var outsideClick = $('#outside-click')
+  var question = $('#prompt-function')
+  var ajax = $('#ajax-request')
 
-  var confirmText = $('#confirm-text');
-  var confirmColor = $('#confirm-color');
+  var confirmText = $('#confirm-text')
+  var confirmColor = $('#confirm-color')
 
-  var assetPath = '../../../app-assets/';
+  var assetPath = '../../../app-assets/'
   if ($('body').attr('data-framework') === 'laravel') {
-    assetPath = $('body').attr('data-asset-path');
+    assetPath = $('body').attr('data-asset-path')
   }
 
   //--------------- Basic Examples ---------------
@@ -55,8 +55,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // With Title
@@ -69,8 +69,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // With Footer
@@ -85,8 +85,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // HTML Alert
@@ -111,8 +111,8 @@ $(function () {
           cancelButton: 'btn btn-outline-danger ms-1'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   //--------------- Position ---------------
@@ -130,8 +130,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Top End
@@ -147,8 +147,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Bottom Start
@@ -164,8 +164,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Bottom End
@@ -181,8 +181,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   //--------------- Animations ---------------
@@ -199,8 +199,8 @@ $(function () {
           popup: 'animate__animated animate__bounceIn'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Fade In
@@ -215,8 +215,8 @@ $(function () {
           popup: 'animate__animated animate__fadeIn'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // FlipX
@@ -231,8 +231,8 @@ $(function () {
           popup: 'animate__animated animate__flipInX'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Tada
@@ -247,8 +247,8 @@ $(function () {
           popup: 'animate__animated animate__tada'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Shake
@@ -263,8 +263,8 @@ $(function () {
           popup: 'animate__animated animate__shakeX'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   //--------------- Types ---------------
@@ -280,8 +280,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Error
@@ -295,8 +295,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Warning
@@ -310,8 +310,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Info
@@ -325,8 +325,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   //--------------- Options ---------------
@@ -345,41 +345,41 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Auto Close
   if (autoClose.length) {
     autoClose.on('click', function () {
-      var timerInterval;
+      var timerInterval
       Swal.fire({
         title: 'Auto close alert!',
         html: 'I will close in <b></b> milliseconds.',
         timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
-          Swal.showLoading();
+          Swal.showLoading()
           timerInterval = setInterval(() => {
-            const content = Swal.getHtmlContainer();
+            const content = Swal.getHtmlContainer()
             if (content) {
-              const b = content.querySelector('b');
+              const b = content.querySelector('b')
               if (b) {
-                b.textContent = Swal.getTimerLeft();
+                b.textContent = Swal.getTimerLeft()
               }
             }
-          }, 100);
+          }, 100)
         },
         willClose: () => {
-          clearInterval(timerInterval);
+          clearInterval(timerInterval)
         }
       }).then(result => {
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
-          console.log('I was closed by the timer');
+          console.log('I was closed by the timer')
         }
-      });
-    });
+      })
+    })
   }
 
   // Click Outside
@@ -392,8 +392,8 @@ $(function () {
           confirmButton: 'btn btn-primary'
         },
         buttonsStyling: false
-      });
-    });
+      })
+    })
   }
 
   // Question
@@ -401,7 +401,7 @@ $(function () {
     question.on('click', function () {
       /* global Swal */
 
-      const steps = ['1', '2', '3'];
+      const steps = ['1', '2', '3']
       const swalQueueStep = Swal.mixin({
         confirmButtonText: 'Forward',
         cancelButtonText: 'Back',
@@ -411,32 +411,32 @@ $(function () {
           required: true
         },
         validationMessage: 'This field is required'
-      });
+      })
 
       async function backAndForth() {
-        const values = [];
-        let currentStep;
+        const values = []
+        let currentStep
 
         for (currentStep = 0; currentStep < steps.length; ) {
           const result = await new swalQueueStep({
             title: 'Question ' + steps[currentStep],
             showCancelButton: currentStep > 0,
             currentProgressStep: currentStep
-          });
+          })
 
           if (result.value) {
-            values[currentStep] = result.value;
-            currentStep++;
+            values[currentStep] = result.value
+            currentStep++
           } else if (result.dismiss === 'cancel') {
-            currentStep--;
+            currentStep--
           }
         }
 
-        Swal.fire(JSON.stringify(values));
+        Swal.fire(JSON.stringify(values))
       }
 
-      backAndForth();
-    });
+      backAndForth()
+    })
   }
 
   // Ajax
@@ -460,13 +460,13 @@ $(function () {
           return fetch(`//api.github.com/users/${login}`)
             .then(response => {
               if (!response.ok) {
-                throw new Error(response.statusText);
+                throw new Error(response.statusText)
               }
-              return response.json();
+              return response.json()
             })
             .catch(error => {
-              Swal.showValidationMessage(`Request failed: ${error}`);
-            });
+              Swal.showValidationMessage(`Request failed: ${error}`)
+            })
         }
       }).then(result => {
         if (result.isConfirmed) {
@@ -474,10 +474,10 @@ $(function () {
             title: '' + result.value.login + "'s avatar",
             imageUrl: result.value.avatar_url,
             customClass: { confirmButton: 'btn btn-primary' }
-          });
+          })
         }
-      });
-    });
+      })
+    })
   }
 
   //--------------- Confirm Options ---------------
@@ -505,10 +505,10 @@ $(function () {
             customClass: {
               confirmButton: 'btn btn-success'
             }
-          });
+          })
         }
-      });
-    });
+      })
+    })
   }
 
   // Confirm Color
@@ -534,7 +534,7 @@ $(function () {
             customClass: {
               confirmButton: 'btn btn-success'
             }
-          });
+          })
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
             title: 'Cancelled',
@@ -543,9 +543,9 @@ $(function () {
             customClass: {
               confirmButton: 'btn btn-success'
             }
-          });
+          })
         }
-      });
-    });
+      })
+    })
   }
-});
+})

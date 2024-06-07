@@ -8,7 +8,7 @@
 
 ==========================================================================================*/
 $(function () {
-  ('use strict');
+  ;('use strict')
 
   var dtUserTable = $('.user-list-table'),
     newUserSidebar = $('.new-user-modal'),
@@ -19,27 +19,27 @@ $(function () {
       1: { title: 'Pending', class: 'badge-light-warning' },
       2: { title: 'Active', class: 'badge-light-success' },
       3: { title: 'Inactive', class: 'badge-light-secondary' }
-    };
+    }
 
   var assetPath = '../../../app-assets/',
-    userView = 'app-user-view-account.html';
+    userView = 'app-user-view-account.html'
 
   if ($('body').attr('data-framework') === 'laravel') {
-    assetPath = $('body').attr('data-asset-path');
-    userView = assetPath + 'app/user/view/account';
+    assetPath = $('body').attr('data-asset-path')
+    userView = assetPath + 'app/user/view/account'
   }
 
   select.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       // the following code is used to disable x-scrollbar when click in select input and
       // take 100% width in responsive also
       dropdownAutoWidth: true,
       width: '100%',
       dropdownParent: $this.parent()
-    });
-  });
+    })
+  })
 
   // Users List datatable
   if (dtUserTable.length) {
@@ -63,7 +63,7 @@ $(function () {
           responsivePriority: 2,
           targets: 0,
           render: function (data, type, full, meta) {
-            return '';
+            return ''
           }
         },
         {
@@ -73,22 +73,22 @@ $(function () {
           render: function (data, type, full, meta) {
             var $name = full['full_name'],
               $email = full['email'],
-              $image = full['avatar'];
+              $image = full['avatar']
             if ($image) {
               // For Avatar image
               var $output =
-                '<img src="' + assetPath + 'images/avatars/' + $image + '" alt="Avatar" height="32" width="32">';
+                '<img src="' + assetPath + 'images/avatars/' + $image + '" alt="Avatar" height="32" width="32">'
             } else {
               // For Avatar badge
-              var stateNum = Math.floor(Math.random() * 6) + 1;
-              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
+              var stateNum = Math.floor(Math.random() * 6) + 1
+              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary']
               var $state = states[stateNum],
                 $name = full['full_name'],
-                $initials = $name.match(/\b\w/g) || [];
-              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
-              $output = '<span class="avatar-content">' + $initials + '</span>';
+                $initials = $name.match(/\b\w/g) || []
+              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase()
+              $output = '<span class="avatar-content">' + $initials + '</span>'
             }
-            var colorClass = $image === '' ? ' bg-light-' + $state + ' ' : '';
+            var colorClass = $image === '' ? ' bg-light-' + $state + ' ' : ''
             // Creates full output for row
             var $row_output =
               '<div class="d-flex justify-content-left align-items-center">' +
@@ -109,38 +109,38 @@ $(function () {
               $email +
               '</small>' +
               '</div>' +
-              '</div>';
-            return $row_output;
+              '</div>'
+            return $row_output
           }
         },
         {
           // User Role
           targets: 2,
           render: function (data, type, full, meta) {
-            var $role = full['role'];
+            var $role = full['role']
             var roleBadgeObj = {
               Subscriber: feather.icons['user'].toSvg({ class: 'font-medium-3 text-primary me-50' }),
               Author: feather.icons['settings'].toSvg({ class: 'font-medium-3 text-warning me-50' }),
               Maintainer: feather.icons['database'].toSvg({ class: 'font-medium-3 text-success me-50' }),
               Editor: feather.icons['edit-2'].toSvg({ class: 'font-medium-3 text-info me-50' }),
               Admin: feather.icons['slack'].toSvg({ class: 'font-medium-3 text-danger me-50' })
-            };
-            return "<span class='text-truncate align-middle'>" + roleBadgeObj[$role] + $role + '</span>';
+            }
+            return "<span class='text-truncate align-middle'>" + roleBadgeObj[$role] + $role + '</span>'
           }
         },
         {
           targets: 4,
           render: function (data, type, full, meta) {
-            var $billing = full['billing'];
+            var $billing = full['billing']
 
-            return '<span class="text-nowrap">' + $billing + '</span>';
+            return '<span class="text-nowrap">' + $billing + '</span>'
           }
         },
         {
           // User Status
           targets: 5,
           render: function (data, type, full, meta) {
-            var $status = full['status'];
+            var $status = full['status']
 
             return (
               '<span class="badge rounded-pill ' +
@@ -148,7 +148,7 @@ $(function () {
               '" text-capitalized>' +
               statusObj[$status].title +
               '</span>'
-            );
+            )
           }
         },
         {
@@ -173,7 +173,7 @@ $(function () {
               'Delete</a></div>' +
               '</div>' +
               '</div>'
-            );
+            )
           }
         }
       ],
@@ -231,11 +231,11 @@ $(function () {
             }
           ],
           init: function (api, node, config) {
-            $(node).removeClass('btn-secondary');
-            $(node).parent().removeClass('btn-group');
+            $(node).removeClass('btn-secondary')
+            $(node).parent().removeClass('btn-group')
             setTimeout(function () {
-              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex mt-50');
-            }, 50);
+              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex mt-50')
+            }, 50)
           }
         },
         {
@@ -246,7 +246,7 @@ $(function () {
             'data-bs-target': '#modals-slide-in'
           },
           init: function (api, node, config) {
-            $(node).removeClass('btn-secondary');
+            $(node).removeClass('btn-secondary')
           }
         }
       ],
@@ -255,8 +255,8 @@ $(function () {
         details: {
           display: $.fn.dataTable.Responsive.display.modal({
             header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['full_name'];
+              var data = row.data()
+              return 'Details of ' + data['full_name']
             }
           }),
           type: 'column',
@@ -276,9 +276,9 @@ $(function () {
                     col.data +
                     '</td>' +
                     '</tr>'
-                : '';
-            }).join('');
-            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false;
+                : ''
+            }).join('')
+            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false
           }
         }
       },
@@ -294,62 +294,62 @@ $(function () {
         this.api()
           .columns(2)
           .every(function () {
-            var column = this;
-            var label = $('<label class="form-label" for="UserRole">Role</label>').appendTo('.user_role');
+            var column = this
+            var label = $('<label class="form-label" for="UserRole">Role</label>').appendTo('.user_role')
             var select = $(
               '<select id="UserRole" class="form-select text-capitalize mb-md-0 mb-2"><option value=""> Select Role </option></select>'
             )
               .appendTo('.user_role')
               .on('change', function () {
-                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                column.search(val ? '^' + val + '$' : '', true, false).draw();
-              });
+                var val = $.fn.dataTable.util.escapeRegex($(this).val())
+                column.search(val ? '^' + val + '$' : '', true, false).draw()
+              })
 
             column
               .data()
               .unique()
               .sort()
               .each(function (d, j) {
-                select.append('<option value="' + d + '" class="text-capitalize">' + d + '</option>');
-              });
-          });
+                select.append('<option value="' + d + '" class="text-capitalize">' + d + '</option>')
+              })
+          })
         // Adding plan filter once table initialized
         this.api()
           .columns(3)
           .every(function () {
-            var column = this;
-            var label = $('<label class="form-label" for="UserPlan">Plan</label>').appendTo('.user_plan');
+            var column = this
+            var label = $('<label class="form-label" for="UserPlan">Plan</label>').appendTo('.user_plan')
             var select = $(
               '<select id="UserPlan" class="form-select text-capitalize mb-md-0 mb-2"><option value=""> Select Plan </option></select>'
             )
               .appendTo('.user_plan')
               .on('change', function () {
-                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                column.search(val ? '^' + val + '$' : '', true, false).draw();
-              });
+                var val = $.fn.dataTable.util.escapeRegex($(this).val())
+                column.search(val ? '^' + val + '$' : '', true, false).draw()
+              })
 
             column
               .data()
               .unique()
               .sort()
               .each(function (d, j) {
-                select.append('<option value="' + d + '" class="text-capitalize">' + d + '</option>');
-              });
-          });
+                select.append('<option value="' + d + '" class="text-capitalize">' + d + '</option>')
+              })
+          })
         // Adding status filter once table initialized
         this.api()
           .columns(5)
           .every(function () {
-            var column = this;
-            var label = $('<label class="form-label" for="FilterTransaction">Status</label>').appendTo('.user_status');
+            var column = this
+            var label = $('<label class="form-label" for="FilterTransaction">Status</label>').appendTo('.user_status')
             var select = $(
               '<select id="FilterTransaction" class="form-select text-capitalize mb-md-0 mb-2xx"><option value=""> Select Status </option></select>'
             )
               .appendTo('.user_status')
               .on('change', function () {
-                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                column.search(val ? '^' + val + '$' : '', true, false).draw();
-              });
+                var val = $.fn.dataTable.util.escapeRegex($(this).val())
+                column.search(val ? '^' + val + '$' : '', true, false).draw()
+              })
 
             column
               .data()
@@ -362,11 +362,11 @@ $(function () {
                     '" class="text-capitalize">' +
                     statusObj[d].title +
                     '</option>'
-                );
-              });
-          });
+                )
+              })
+          })
       }
-    });
+    })
   }
 
   // Form Validation
@@ -384,15 +384,15 @@ $(function () {
           required: true
         }
       }
-    });
+    })
 
     newUserForm.on('submit', function (e) {
-      var isValid = newUserForm.valid();
-      e.preventDefault();
+      var isValid = newUserForm.valid()
+      e.preventDefault()
       if (isValid) {
-        newUserSidebar.modal('hide');
+        newUserSidebar.modal('hide')
       }
-    });
+    })
   }
 
   // Phone Number
@@ -401,7 +401,7 @@ $(function () {
       new Cleave($(this), {
         phone: true,
         phoneRegionCode: 'US'
-      });
-    });
+      })
+    })
   }
-});
+})

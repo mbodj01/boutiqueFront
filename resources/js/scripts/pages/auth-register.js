@@ -8,7 +8,7 @@
 ==========================================================================================*/
 
 $(function () {
-  ('use strict');
+  ;('use strict')
 
   var assetsPath = '../../../app-assets/',
     registerMultiStepsWizard = document.querySelector('.register-multi-steps-wizard'),
@@ -18,10 +18,10 @@ $(function () {
     expiryDateMask = $('.expiry-date-mask'),
     cvvMask = $('.cvv-code-mask'),
     mobileNumberMask = $('.mobile-number-mask'),
-    pinCodeMask = $('.pin-code-mask');
+    pinCodeMask = $('.pin-code-mask')
 
   if ($('body').attr('data-framework') === 'laravel') {
-    assetsPath = $('body').attr('data-asset-path');
+    assetsPath = $('body').attr('data-asset-path')
   }
 
   // jQuery Validation
@@ -50,7 +50,7 @@ $(function () {
           required: true
         }
       }
-    });
+    })
   }
 
   // multi-steps registration
@@ -59,9 +59,9 @@ $(function () {
   // Horizontal Wizard
   if (typeof registerMultiStepsWizard !== undefined && registerMultiStepsWizard !== null) {
     var numberedStepper = new Stepper(registerMultiStepsWizard),
-      $form = $(registerMultiStepsWizard).find('form');
+      $form = $(registerMultiStepsWizard).find('form')
     $form.each(function () {
-      var $this = $(this);
+      var $this = $(this)
       $this.validate({
         rules: {
           username: {
@@ -100,50 +100,50 @@ $(function () {
             equalTo: 'The password and its confirm are not the same'
           }
         }
-      });
-    });
+      })
+    })
 
     $(registerMultiStepsWizard)
       .find('.btn-next')
       .each(function () {
         $(this).on('click', function (e) {
-          var isValid = $(this).parent().siblings('form').valid();
+          var isValid = $(this).parent().siblings('form').valid()
           if (isValid) {
-            numberedStepper.next();
+            numberedStepper.next()
           } else {
-            e.preventDefault();
+            e.preventDefault()
           }
-        });
-      });
+        })
+      })
 
     $(registerMultiStepsWizard)
       .find('.btn-prev')
       .on('click', function () {
-        numberedStepper.previous();
-      });
+        numberedStepper.previous()
+      })
 
     $(registerMultiStepsWizard)
       .find('.btn-submit')
       .on('click', function () {
-        var isValid = $(this).parent().siblings('form').valid();
+        var isValid = $(this).parent().siblings('form').valid()
         if (isValid) {
-          alert('Submitted..!!');
+          alert('Submitted..!!')
         }
-      });
+      })
   }
 
   // select2
   select.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       // the following code is used to disable x-scrollbar when click in select input and
       // take 100% width in responsive also
       dropdownAutoWidth: true,
       width: '100%',
       dropdownParent: $this.parent()
-    });
-  });
+    })
+  })
 
   // credit card
 
@@ -153,21 +153,21 @@ $(function () {
       new Cleave($(this), {
         creditCard: true,
         onCreditCardTypeChanged: function (type) {
-          const elementNodeList = document.querySelectorAll('.card-type');
+          const elementNodeList = document.querySelectorAll('.card-type')
           if (type != '' && type != 'unknown') {
             //! we accept this approach for multiple credit card masking
             for (let i = 0; i < elementNodeList.length; i++) {
               elementNodeList[i].innerHTML =
-                '<img src="' + assetsPath + 'images/icons/payments/' + type + '-cc.png" height="24"/>';
+                '<img src="' + assetsPath + 'images/icons/payments/' + type + '-cc.png" height="24"/>'
             }
           } else {
             for (let i = 0; i < elementNodeList.length; i++) {
-              elementNodeList[i].innerHTML = '';
+              elementNodeList[i].innerHTML = ''
             }
           }
         }
-      });
-    });
+      })
+    })
   }
 
   // Expiry Date Mask
@@ -176,7 +176,7 @@ $(function () {
       date: true,
       delimiter: '/',
       datePattern: ['m', 'y']
-    });
+    })
   }
 
   // CVV
@@ -184,7 +184,7 @@ $(function () {
     new Cleave(cvvMask, {
       numeral: true,
       numeralPositiveOnly: true
-    });
+    })
   }
 
   // phone number mask
@@ -192,7 +192,7 @@ $(function () {
     new Cleave(mobileNumberMask, {
       phone: true,
       phoneRegionCode: 'US'
-    });
+    })
   }
 
   // Pincode
@@ -200,9 +200,9 @@ $(function () {
     new Cleave(pinCodeMask, {
       delimiter: '',
       numeral: true
-    });
+    })
   }
 
   // multi-steps registration
   // --------------------------------------------------------------------
-});
+})

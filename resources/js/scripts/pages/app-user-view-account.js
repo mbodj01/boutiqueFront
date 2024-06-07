@@ -8,17 +8,17 @@
 ==========================================================================================*/
 
 $(function () {
-  'use strict';
+  'use strict'
 
   // Variable declaration for table
   var dt_project_table = $('.datatable-project'),
     dtInvoiceTable = $('.invoice-table'),
     invoicePreview = 'app-invoice-preview.html',
-    assetPath = '../../../app-assets/';
+    assetPath = '../../../app-assets/'
 
   if ($('body').attr('data-framework') === 'laravel') {
-    assetPath = $('body').attr('data-asset-path');
-    invoicePreview = assetPath + 'app/invoice/preview';
+    assetPath = $('body').attr('data-asset-path')
+    invoicePreview = assetPath + 'app/invoice/preview'
   }
 
   // Project datatable
@@ -43,7 +43,7 @@ $(function () {
           responsivePriority: 2,
           targets: 0,
           render: function (data, type, full, meta) {
-            return '';
+            return ''
           }
         },
         {
@@ -53,7 +53,7 @@ $(function () {
           render: function (data, type, full, meta) {
             var $name = full['project_name'],
               $framework = full['framework'],
-              $image = full['project_image'];
+              $image = full['project_image']
             if ($image) {
               // For Avatar image
               var $output =
@@ -61,16 +61,16 @@ $(function () {
                 assetPath +
                 'images/icons/brands/' +
                 $image +
-                '" alt="Project Image" width="32" class="rounded-circle">';
+                '" alt="Project Image" width="32" class="rounded-circle">'
             } else {
               // For Avatar badge
-              var stateNum = Math.floor(Math.random() * 6) + 1;
-              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
+              var stateNum = Math.floor(Math.random() * 6) + 1
+              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary']
               var $state = states[stateNum],
                 $name = full['full_name'],
-                $initials = $name.match(/\b\w/g) || [];
-              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
-              $output = '<span class="avatar-initial rounded-circle bg-label-' + $state + '">' + $initials + '</span>';
+                $initials = $name.match(/\b\w/g) || []
+              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase()
+              $output = '<span class="avatar-initial rounded-circle bg-label-' + $state + '">' + $initials + '</span>'
             }
             // Creates full output for row
             var $row_output =
@@ -88,8 +88,8 @@ $(function () {
               $framework +
               '</small>' +
               '</div>' +
-              '</div>';
-            return $row_output;
+              '</div>'
+            return $row_output
           }
         },
         {
@@ -98,20 +98,20 @@ $(function () {
           responsivePriority: 1,
           render: function (data, type, full, meta) {
             var $progress = full['progress'] + '%',
-              $color;
+              $color
             switch (true) {
               case full['progress'] < 25:
-                $color = 'bg-danger';
-                break;
+                $color = 'bg-danger'
+                break
               case full['progress'] < 50:
-                $color = 'bg-warning';
-                break;
+                $color = 'bg-warning'
+                break
               case full['progress'] < 75:
-                $color = 'bg-info';
-                break;
+                $color = 'bg-info'
+                break
               case full['progress'] <= 100:
-                $color = 'bg-success';
-                break;
+                $color = 'bg-success'
+                break
             }
             return (
               '<div class="d-flex flex-column"><small class="mb-1">' +
@@ -127,7 +127,7 @@ $(function () {
               '" aria-valuemin="0" aria-valuemax="100"></div>' +
               '</div>' +
               '</div>'
-            );
+            )
           }
         }
       ],
@@ -144,8 +144,8 @@ $(function () {
         details: {
           display: $.fn.dataTable.Responsive.display.modal({
             header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['framework'];
+              var data = row.data()
+              return 'Details of ' + data['framework']
             }
           }),
           type: 'column',
@@ -165,14 +165,14 @@ $(function () {
                     col.data +
                     '</td>' +
                     '</tr>'
-                : '';
-            }).join('');
+                : ''
+            }).join('')
 
-            return data ? $('<table class="table"/><tbody />').append(data) : false;
+            return data ? $('<table class="table"/><tbody />').append(data) : false
           }
         }
       }
-    });
+    })
   }
 
   // Invoice datatable
@@ -203,10 +203,10 @@ $(function () {
           targets: 1,
           width: '46px',
           render: function (data, type, full, meta) {
-            var $invoiceId = full['invoice_id'];
+            var $invoiceId = full['invoice_id']
             // Creates full output for row
-            var $rowOutput = '<a class="fw-bolder" href="' + invoicePreview + '"> #' + $invoiceId + '</a>';
-            return $rowOutput;
+            var $rowOutput = '<a class="fw-bolder" href="' + invoicePreview + '"> #' + $invoiceId + '</a>'
+            return $rowOutput
           }
         },
         {
@@ -224,7 +224,7 @@ $(function () {
                 Downloaded: { class: 'bg-light-info', icon: 'arrow-down-circle' },
                 'Past Due': { class: 'bg-light-danger', icon: 'info' },
                 'Partial Payment': { class: 'bg-light-warning', icon: 'pie-chart' }
-              };
+              }
             return (
               "<span data-bs-toggle='tooltip' data-bs-html='true' title='<span>" +
               $invoiceStatus +
@@ -241,7 +241,7 @@ $(function () {
               '</span>' +
               '</div>' +
               '</span>'
-            );
+            )
           }
         },
         {
@@ -249,8 +249,8 @@ $(function () {
           targets: 3,
           width: '73px',
           render: function (data, type, full, meta) {
-            var $total = full['total'];
-            return '$' + $total;
+            var $total = full['total']
+            return '$' + $total
           }
         },
         {
@@ -258,11 +258,11 @@ $(function () {
           targets: 4,
           width: '130px',
           render: function (data, type, full, meta) {
-            var $issuedDate = new Date(full['issued_date']);
+            var $issuedDate = new Date(full['issued_date'])
             // Creates full output for row
-            var $rowOutput = moment($issuedDate).format('DD MMM YYYY');
-            $issuedDate;
-            return $rowOutput;
+            var $rowOutput = moment($issuedDate).format('DD MMM YYYY')
+            $issuedDate
+            return $rowOutput
           }
         },
         {
@@ -285,7 +285,7 @@ $(function () {
               '<a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="Download">' +
               feather.icons['download'].toSvg({ class: 'font-medium-2 text-body' }) +
               '</a>'
-            );
+            )
           }
         }
       ],
@@ -329,11 +329,11 @@ $(function () {
             }
           ],
           init: function (api, node, config) {
-            $(node).removeClass('btn-secondary');
-            $(node).parent().removeClass('btn-group');
+            $(node).removeClass('btn-secondary')
+            $(node).parent().removeClass('btn-group')
             setTimeout(function () {
-              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex');
-            }, 50);
+              $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex')
+            }, 50)
           }
         }
       ],
@@ -342,8 +342,8 @@ $(function () {
         details: {
           display: $.fn.dataTable.Responsive.display.modal({
             header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['client_name'];
+              var data = row.data()
+              return 'Details of ' + data['client_name']
             }
           }),
           type: 'column',
@@ -363,32 +363,32 @@ $(function () {
                     col.data +
                     '</td>' +
                     '</tr>'
-                : '';
-            }).join('');
-            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false;
+                : ''
+            }).join('')
+            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false
           }
         }
       },
       initComplete: function () {
-        $(document).find('[data-bs-toggle="tooltip"]').tooltip();
+        $(document).find('[data-bs-toggle="tooltip"]').tooltip()
       },
       drawCallback: function () {
-        $(document).find('[data-bs-toggle="tooltip"]').tooltip();
+        $(document).find('[data-bs-toggle="tooltip"]').tooltip()
       }
-    });
-    $('div.head-label').html('<h4 class="card-title">Invoices</h4>');
+    })
+    $('div.head-label').html('<h4 class="card-title">Invoices</h4>')
   }
 
   // Filter form control to default size
   // ? setTimeout used for multilingual table initialization
   setTimeout(() => {
-    $('.dataTables_filter .form-control').removeClass('form-control-sm');
-    $('.dataTables_length .form-select').removeClass('form-select-sm');
-  }, 300);
+    $('.dataTables_filter .form-control').removeClass('form-control-sm')
+    $('.dataTables_length .form-select').removeClass('form-select-sm')
+  }, 300)
 
   // To initialize tooltip with body container
   $('body').tooltip({
     selector: '[data-bs-toggle="tooltip"]',
     container: 'body'
-  });
-});
+  })
+})

@@ -1829,9 +1829,8 @@
       }
     }
   }
-  .kanban-board.gu-mirror,
-    .kanban-item.gu-mirror {
-    background-color: $theme-dark-card-bg !important;
+  .kanban-item.gu-mirror {
+    background-color: $theme-dark-card-bg;
   }
 
   // Todo application

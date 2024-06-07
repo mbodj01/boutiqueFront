@@ -9,9 +9,6 @@ class Helpers
 {
     public static function applClasses()
     {
-
-        $data = config('custom.custom');
-
         // default data array
         $DefaultData = [
             'mainLayoutType' => 'vertical',
@@ -33,7 +30,7 @@ class Helpers
         ];
 
         // if any key missing of array from custom.php file it will be merge and set a default value from dataDefault array and store in data variable
-        $data = array_merge($DefaultData, $data);
+        $data = array_merge($DefaultData, config('custom.custom'));
 
         // All options available in the template
         $allOptions = [
@@ -131,7 +128,6 @@ class Helpers
     public static function updatePageConfig($pageConfigs)
     {
         $demo = 'custom';
-
         if (isset($pageConfigs)) {
             if (count($pageConfigs) > 0) {
                 foreach ($pageConfigs as $config => $val) {
